@@ -1,13 +1,17 @@
 <template>
     <div>
       <h1>projects</h1>
-      
-      <ul>
-        <li v-for="project in projects" :key="project.id">
-          {{ project.title }}
-        </li>
-      </ul>
-  
+      <div class="container">
+        
+        <div class="row">
+          <div class="col-12 col-md-4 col-lg-3" v-for="project in projects" :key="project.id">
+        
+            <AppCard :project="project">
+            </AppCard>
+          </div>
+        </div>
+      </div>
+
       <button @click="previousPage()">Indietro</button>
       <button @click="nextPage()">Avanti</button>
   
@@ -17,8 +21,13 @@
   <script>
   import axios from "axios";
   import {store} from "../store.js";
+  import AppCard from '../AppCard.vue'
+
   export default {
-    name: "Project",
+    components: {
+      AppCard
+    },
+    name: "AppProjects",
     data () {
       return {
         store,
@@ -52,7 +61,7 @@
       }
     },
   
-    mounted(){
+    created(){
       this.getAllProjects();
     },
   }

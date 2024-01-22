@@ -17,3 +17,5 @@ npm install @fontsource/montserrat
 # eliminiamo i file inutili al termine le cartelle dovrebbero essere così:
 
 npm run dev -- --port 5174 (API_URL='http://localhost:8000/api')
+
+
