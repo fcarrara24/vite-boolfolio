@@ -14,4 +14,4 @@ Creiamo un nuovo componente es. ProjectDetail che corrisponde alla rotta per vis
 Creiamo anche un componente NotFound per la rotta di fallback.
 Bonus:
 Gestire la paginazione dei risultati nella pagina dei progetti
-Creare una barra di navigazione in un componente header e un componente per il footer
+Creare una barra di navigazione in un componente header e un componente per il footer.
