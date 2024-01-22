@@ -1,7 +1,29 @@
 <template>
-    <h1>Single Project</h1>
-    <h2 v-if="project" class="text-center text-uppercase">{{ project.title }}</h2>
-    <img :src="`${store.imgPath}${project.image}`" :alt="project.image">
+    <div class="container pb-5">
+       
+        <h2 v-if="project" class="text-center text-uppercase py-4">{{ project.title }}</h2>
+        <div v-if="project.image" class="card overflow-hidden rounded-4 m-5">
+            <img :src="`${store.imgPath}${project.image}`" :alt="project.image">
+        </div>
+        <div class="mt-3 px-5" v-if="project.body">
+            <span >
+                {{ project.body }}
+            </span>
+        </div>
+        <div class="my-3 w-100 d-flex flex-row justify-content-center" v-if="project.github">
+            <a :href="project.github" class="text-center">
+                {{ project.github }}
+            </a>
+        </div>
+
+        <!-- <div class="my-5 w-100 d-flex flex-row justify-content-center" v-if="project.github">
+            <h3 class="text-center text-uppercase">
+                TECONOLOGIE USATE
+            </h3>
+            
+        </div> -->
+
+    </div>
 </template>
 
 <script>
@@ -30,10 +52,12 @@ export default {
                     this.$router.push({ name: 'not-found'}); 
                 }
             });
-        }
+        },
+        
     },
     created(){
         this.getProjectData();
+        
     }
 }
 </script>

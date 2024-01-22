@@ -14,3 +14,14 @@ $fa-font-path: "../webfonts";
     background-color: transparent;
     color: #1abc9c;
 }
+
+.centered{
+    text-align: center;
+    align-items: center;
+}
+
+.my-title{
+    &:hover{
+        text-decoration:double;
+    }
+}
