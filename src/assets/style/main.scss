@@ -1,6 +1,7 @@
 @use './partials/variables' as *;
+@use './partials/template.scss' as *;
 
-$fa-font-path: ".../webfonts";
+$fa-font-path: "../webfonts";
 
 @import '@fortawesome/fontawesome-free/scss/fontawesome.scss';
 @import '@fortawesome/fontawesome-free/scss/solid.scss';
@@ -8,3 +9,8 @@ $fa-font-path: ".../webfonts";
 @import '@fortawesome/fontawesome-free/scss/brands.scss';
 
 @import 'bootstrap/scss/bootstrap';
+
+.my-active{
+    background-color: transparent;
+    color: #1abc9c;
+}

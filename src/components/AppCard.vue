@@ -1,11 +1,16 @@
-<template>
-    <div class="card">
+<template class="col-lg-8">
         
-        <router-link class="btn btn-primary" :to="{name: 'single-project', params: {slug: project.slug}}">
-            {{ project.title }}
+    <div class="card overflow-hidden rounded-4 ">
+        
+        <router-link class=" w-100 " :to="{name: 'single-project', params: {slug: project.slug}}">
+            <img v-if="project.image" style="width: 100%; height: 300px; object-fit: cover;" :src="`${store.imgPath}${project.image}`" :alt="project.image">
+            <img v-if="!project.image" src="../assets/img/avataaars.svg" alt="" style="width: 100%; height: 300px; object-fit: cover;">
         </router-link>
-        <img v-if="project.image" :src="`${store.imgPath}${project.image}`" :alt="project.image">
-    </div>
+
+        
+    </div> 
+    <!-- {{ project.title }} -->
+
 </template>
 
 <script>

@@ -1,4 +1,5 @@
 <template>
+  <AppNavbar/>
   <AppHeader/>
   <router-view></router-view>
   <!-- <Project/> -->
@@ -11,7 +12,8 @@
 // import AppProjects from './pages/AppProjects.vue'
 // import Type from './page/Type.vue'
 // import Technology from './page/Technology.vue'
-import AppHeader from './AppHeader.vue'
+import AppHeader from './parts/AppHeader.vue';
+import AppNavbar from './parts/AppNavbar.vue'
 
 export default {
   name: 'App',
@@ -20,14 +22,16 @@ export default {
     // Type,
     // Technology,
     // AppProjects,
-    AppHeader,
-  },
+    AppNavbar,
+    AppHeader
+},
   data () {
     return {}
   }
 }
 </script>
 
+  
 <style lang="scss" scoped>
 
 </style>
