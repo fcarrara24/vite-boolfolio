@@ -20,7 +20,27 @@
                 
             </div>
         </section>
+        <nav class="d-flex justify-content-center align-items-center my-4">
+            <ul class="pagination">
+                <li class="page-item" :class="{'disabled' : currentPage === 1}">
+                  <button @click="previousPage" class="page-link " :disabled="currentPage === 1">indietro</button>
+                </li>
+                <li class="page-item" v-for="n in lastPage">
+                  <button @click="getPage(n)" class="page-link " :disabled="currentPage === n">{{ n }}</button>
+                </li>
 
+                <li class="page-item" :class="{'disabled' : currentPage === lastPage}">
+                  <button @click="nextPage" class="page-link " :disabled="currentPage === lastPage">avanti</button>
+                </li>
+            </ul>
+
+           
+        </nav>
+
+        <div class="d-flex flex-row justify-content-center w-100 gap-5 pb-3 ">
+         
+          
+        </div>
 
 
   </template>
@@ -46,6 +66,14 @@
     methods: {
       getAllProjects(){
         axios.get(store.apiUrl + "/projects", {params: {page: this.currentPage}}).then((res)=>{
+          console.log(res);
+          this.projects = res.data.results.data;
+          this.currentPage = res.data.results.current_page;
+          this.lastPage = res.data.results.last_page;
+        })
+      },
+      getPage(page){
+        axios.get(store.apiUrl + "/projects", {params: {page: page}}).then((res)=>{
           console.log(res);
           this.projects = res.data.results.data;
           this.currentPage = res.data.results.current_page;
