@@ -15,3 +15,6 @@ Creiamo anche un componente NotFound per la rotta di fallback.
 Bonus:
 Gestire la paginazione dei risultati nella pagina dei progetti
 Creare una barra di navigazione in un componente header e un componente per il footer.
+
+Oggi aggiungete al vostro portfolio un form di conatatto che invii una mail (lavorate sule due repo di laravel e vue)
+Buon pomeriggio e buon lavoro !

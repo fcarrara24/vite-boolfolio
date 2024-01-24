@@ -72,6 +72,12 @@
           this.lastPage = res.data.results.last_page;
         })
       },
+      getAllType(){
+        axios.get(store.apiUrl + "/types")
+        .then((res)=>{
+          this.store.types=res.data
+        })
+      },
       getPage(page){
         axios.get(store.apiUrl + "/projects", {params: {page: page}}).then((res)=>{
           console.log(res);

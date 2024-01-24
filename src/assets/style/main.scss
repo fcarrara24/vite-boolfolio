@@ -21,7 +21,14 @@ $fa-font-path: "../webfonts";
 }
 
 .my-title{
+    color: #fff;
+    text-shadow:
+        3px 3px 0 #000,
+        -3px 3px 0 #000,
+        -3px -3px 0 #000,
+        3px -3px 0 #000;
     &:hover{
-        text-decoration:double;
+        text-decoration: none;
     }
 }
+

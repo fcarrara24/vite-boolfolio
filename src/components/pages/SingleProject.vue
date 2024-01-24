@@ -16,13 +16,23 @@
             </a>
         </div>
 
-        <!-- <div class="my-5 w-100 d-flex flex-row justify-content-center" v-if="project.github">
-            <h3 class="text-center text-uppercase">
-                TECONOLOGIE USATE
-            </h3>
-            
-        </div> -->
+        <div class="mt-3 px-5" v-if="project.type">
+            <h3 class=" text-center pb-3 text-white">TYPE</h3>
+            <div class="w-100  ">
+                <div class="text-center label label-success">{{ project.type.name }}</div>
+            </div>
+        </div>
 
+        <div class="mt-3 px-5 " v-if="project.technologies">
+            <h3 class=" text-center  pb-4 text-white">TECHNOLOGIES</h3>
+            <div class="d-flex flex-row justify-content-center gap-4">
+                <div v-for="technology in project.technologies" class="label label-success">
+                    {{ technology.name }}
+                </div>
+            </div>
+        </div>
+
+       <!-- <button @click="goToNext">prossima</button> -->
     </div>
 </template>
 
@@ -53,7 +63,33 @@ export default {
                 }
             });
         },
-        
+        // goToNext(){
+        //     id = project.id;
+        //     projects = getAllProjects();
+        //     if(projects.length() === this.id){
+        //         nextProject = projects[0]; 
+        //         this.id = 1;  
+        //     } else {
+        //         nextProject = projects[id];
+        //         this.id = this.id++;   
+        //     } 
+        //     nextProject.slug;
+        // },
+        // getAllProjects(){
+        // axios.get(store.apiUrl + "/projects", {params: {page: this.currentPage}}).then((res)=>{
+        //     console.log(res);
+        //     this.projects = res.data.results.data;
+        //     this.currentPage = res.data.results.current_page;
+        //     this.lastPage = res.data.results.last_page;
+        //     })
+        // },
+    },
+    watch: {
+        '$route.params.slug': function (newSlug, oldSlug) {
+                if (newSlug !== oldSlug) {
+                this.getOneProject();
+            }
+        }
     },
     created(){
         this.getProjectData();

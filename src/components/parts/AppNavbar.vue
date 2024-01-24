@@ -40,6 +40,10 @@ export default {
                 {
                     label: "projects",
                     name: 'projects'
+                },
+                {
+                    label: "contacts",
+                    name: 'contacts'
                 }
             ]
         }
