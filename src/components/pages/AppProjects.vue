@@ -1,5 +1,11 @@
 <template>
-    
+    <div class="container py-3 d-flex justify-content-between align-items-center my-3">
+      <h1>Post List</h1>
+      <select name="type" id="type" class="form-control" style="max-width:300px;" v-model="selectedType" @change="setParams()">
+          <option value="">--Choose type--</option>
+          <option :value="typo.id" v-for="typo in store.types"  >{{ typo.name }}</option>
+      </select>
+    </div>
 
     <section class="page-section portfolio" id="portfolio">
             <div class="container">
@@ -60,16 +66,29 @@
         store,
         projects: [],
         currentPage: 1,
-        lastPage: 0,
+        lastPage: null,
+        total: 0,
+        selectedType: ''
       }
     },
     methods: {
-      getAllProjects(){
-        axios.get(store.apiUrl + "/projects", {params: {page: this.currentPage}}).then((res)=>{
+      setParams(pageNum=1){
+           
+          const params = new URLSearchParams();
+          params.append('page', pageNum);
+          if(this.selectedType){
+              params.append('type', this.selectedType);                
+          }
+          console.log(params);
+          this.getAllProjects(params);
+      },
+      getAllProjects(params){
+        axios.get(store.apiUrl + "/projects", {params}).then((res)=>{
           console.log(res);
           this.projects = res.data.results.data;
           this.currentPage = res.data.results.current_page;
           this.lastPage = res.data.results.last_page;
+          this.total = res.data.results.total
         })
       },
       getAllType(){
@@ -99,11 +118,22 @@
           this.currentPage-=1;
           this.getAllProjects();
         }
+      },
+      getAllTypes(){
+        axios.get(`${this.store.apiUrl}/types`).then((res)=>{
+            console.log(res.data);
+            this.store.types = res.data;
+        }).catch((err)=>{
+            
+        })
       }
     },
   
     created(){
-      this.getAllProjects();
+      // this.getAllProjects();
+      this.getAllTypes();
+      this.setParams();
+
     },
   }
   </script>

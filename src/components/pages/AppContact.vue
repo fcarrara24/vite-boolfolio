@@ -1,5 +1,5 @@
 <template>
-    <h1>Contact Us</h1>
+    <h1 class="w-100 text-center text-uppercase py-3">Contact Us</h1>
     
     <ContactForm/>
     
