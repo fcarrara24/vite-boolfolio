@@ -77,7 +77,7 @@
           const params = new URLSearchParams();
           params.append('page', pageNum);
           if(this.selectedType){
-              params.append('type', this.selectedType);                
+              params.append('type', this.selectedType);     
           }
           console.log(params);
           this.getAllProjects(params);

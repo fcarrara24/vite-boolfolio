@@ -17,16 +17,16 @@
         </div>
 
         <div class="mt-3 px-5" v-if="project.type">
-            <h3 class=" text-center pb-3 text-white">TYPE</h3>
-            <div class="w-100  ">
-                <div class="text-center label label-success">{{ project.type.name }}</div>
+            <h3 class=" text-center pb-3 ">TYPE</h3>
+            <div class="w-100  d-flex flex-row justify-content-center ">
+                <div class="text-center btn btn-warning">{{ project.type.name }}</div>
             </div>
         </div>
 
         <div class="mt-3 px-5 " v-if="project.technologies">
-            <h3 class=" text-center  pb-4 text-white">TECHNOLOGIES</h3>
+            <h3 class=" text-center  pb-4 ">TECHNOLOGIES</h3>
             <div class="d-flex flex-row justify-content-center gap-4">
-                <div v-for="technology in project.technologies" class="label label-success">
+                <div v-for="technology in project.technologies" class=" btn btn-success">
                     {{ technology.name }}
                 </div>
             </div>
